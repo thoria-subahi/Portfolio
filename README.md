@@ -1,6 +1,6 @@
-# Thoria Subahi - Frontend Developer Portfolio
+# Thoria Subahi - Software Engineer Portfolio
 
-This is a personal portfolio website built with React to showcase my skills, projects, and experience as a frontend developer.
+This is a personal portfolio website built with React to showcase my skills, projects, and experience as a software engineer.
 
 ## Features
 
@@ -68,4 +68,5 @@ This builds the app for production to the `build` folder, optimizing the build f
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+
 # Portfolio
