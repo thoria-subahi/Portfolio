@@ -1,0 +1,113 @@
+.experience {
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-content {
+  max-width: 1000px;
+  min-width: auto;
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 31, 0.45);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.experience h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--secondary-color);
+}
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: rgba(223, 255, 103, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 40px;
+  padding-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 25px;
+  transition: var(--transition);
+}
+
+.timeline-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-company {
+  font-weight: 600;
+}
+
+.timeline-date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.timeline-description {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 60px 20px;
+  }
+}

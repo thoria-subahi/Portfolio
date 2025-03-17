@@ -1,0 +1,112 @@
+.projects {
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .projects-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .projects h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem;
+  }
+  
+  .projects h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--secondary-color);
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+  }
+  
+  .project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .project-card p {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+  }
+  
+  .tech-tag {
+    background: rgba(223, 255, 103, 0.1);
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .project-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  
+  .project-link {
+    padding: 8px 16px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+  
+  .project-link:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+  }
+  
+  @media (max-width: 768px) {
+    .projects {
+      padding: 60px 20px;
+    }
+  
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
