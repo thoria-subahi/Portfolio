@@ -1,17 +1,17 @@
 .contact {
   padding: 80px 40px 0; /* Remove bottom padding */
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to show footer border */
 }
 
 .contact-content {
   max-width: 1000px;
   min-width: auto;
   margin: 0 auto;
-  margin-bottom: 2rem; /* Add space between content and footer */
+  margin-bottom: 3rem; /* Increased space between content and footer */
   padding: 2.5rem 3rem 1rem; /* Reduced bottom padding */
   position: relative;
-  z-index: 2;
+  z-index: 1; /* Reduced from 2 to allow footer border to show */
   backdrop-filter: blur(10px);
   background: rgba(10, 10, 31, 0.45);
   border-radius: 15px;
