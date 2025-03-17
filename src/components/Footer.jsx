@@ -5,7 +5,7 @@ import {
   FaEnvelope,
   FaExternalLinkAlt,
 } from "react-icons/fa";
-import resume from "../assets/Thoria-Subahi CV.pdf";
+import resume from "../assets/Thoria-Subahi-CV.pdf";
 import "../Footer.css";
 
 const Footer = () => {
