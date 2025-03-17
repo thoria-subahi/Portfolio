@@ -25,6 +25,13 @@ const Experience = () => {
         "Managed administrative tasks, maintained student records, and provided support to the administrative team. Improved organizational and data management skills.",
     },
     {
+      title: "Telephone Interviewer",
+      company: "IFF Research, London",
+      period: "2020",
+      description:
+        "Achieved high response rates by managing graduate survey participation. Helped gather data from graduates, supporting IFF Research in providing valuable insights for regulatory decisions.",
+    },
+    {
       title: "Sales Associate",
       company: "Gap",
       period: "2017 - 2020",
