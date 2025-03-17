@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import resume from "../assets/Thoria-Subahi CV.pdf";
+import resume from "../assets/Thoria-Subahi-CV.pdf";
 
 const About = () => {
   const skills = [
