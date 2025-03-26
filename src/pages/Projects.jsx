@@ -1,6 +1,19 @@
-import React, { useMemo } from "react";
+import React, { useMemo, Suspense } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import "./Projects.css";
+
+class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return <div>Something went wrong loading the projects.</div>;
+    }
+    return this.props.children;
+  }
+}
 
 const ProjectCard = React.memo(({ project }) => (
   <div className="project-card">
@@ -94,16 +107,20 @@ const Projects = () => {
   );
 
   return (
-    <div className="projects">
-      <div className="projects-content">
-        <h2>Projects</h2>
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
+    <ErrorBoundary>
+      <div className="projects">
+        <div className="projects-content">
+          <h2>Projects</h2>
+          <Suspense fallback={<div>Loading projects...</div>}>
+            <div className="projects-grid">
+              {projects.map((project, index) => (
+                <ProjectCard key={`project-${index}`} project={project} />
+              ))}
+            </div>
+          </Suspense>
         </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 
