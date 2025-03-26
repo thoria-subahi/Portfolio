@@ -215,11 +215,11 @@
 
 .resume-btn {
   display: inline-block;
-  padding: 12px 30px; /* Slightly increased horizontal padding */
+  padding: 12px 30px; 
   background: rgba(0, 255, 149, 0.1);
   border: 1px solid var(--secondary-color);
   color: var(--secondary-color);
-  border-radius: 25px; /* Changed from 4px to 25px for more rounded corners */
+  border-radius: 25px;
   font-weight: 600;
   transition: all 0.3s ease;
   margin-bottom: 3rem;
