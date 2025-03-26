@@ -1,39 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useMousePosition } from "../hooks/useMousePosition";
 import "../Home.css";
 
+const ParticleEffect = React.memo(() => (
+  <div className="particles">
+    {Array(50)
+      .fill(null)
+      .map((_, i) => (
+        <div
+          key={i}
+          className="particle"
+          style={{
+            "--delay": `${Math.random() * 5}s`,
+            "--size": `${Math.random() * 3 + 1}px`,
+          }}
+        />
+      ))}
+  </div>
+));
+
 const Home = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const mousePosition = useMousePosition();
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      setMousePosition({ x, y });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  const socialLinks = useMemo(
+    () => [
+      { icon: FaGithub, url: "https://github.com/thoria-subahi" },
+      { icon: FaLinkedin, url: "https://linkedin.com/in/thoria-subahi" },
+    ],
+    []
+  );
 
   return (
     <div className="home">
       <div className="matrix-background">
-        <div className="particles">
-          {Array(50)
-            .fill(null)
-            .map((_, i) => (
-              <div
-                key={i}
-                className="particle"
-                style={{
-                  "--delay": `${Math.random() * 5}s`,
-                  "--size": `${Math.random() * 3 + 1}px`,
-                }}
-              />
-            ))}
-        </div>
+        <ParticleEffect />
         <div
           className="ambient-light"
           style={{ "--x": `${mousePosition.x}%`, "--y": `${mousePosition.y}%` }}
@@ -58,25 +60,20 @@ const Home = () => {
         </div>
       </div>
       <div className="social-icons">
-        <a
-          href="https://github.com/thoria-subahi"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-icon"
-        >
-          <FaGithub />
-        </a>
-        <a
-          href="https://linkedin.com/in/thoria-subahi"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-icon"
-        >
-          <FaLinkedin />
-        </a>
+        {socialLinks.map(({ icon: Icon, url }, i) => (
+          <a
+            key={i}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon"
+          >
+            <Icon />
+          </a>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default React.memo(Home);

@@ -1,59 +1,53 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback, memo } from "react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 import "./Navbar.css";
+
+const NavLink = memo(({ to, children, onClick }) => (
+  <li>
+    <Link to={to} onClick={onClick}>
+      {children}
+    </Link>
+  </li>
+));
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
+  const { isScrolled, handleScroll } = useTheme();
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const handleLinkClick = () => {
+  const handleLinkClick = useCallback(() => {
     setIsOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, []);
 
   return (
-    <nav className="navbar" ref={navRef}>
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`} ref={navRef}>
       <Link to="/" className="logo" onClick={handleLinkClick}>
         Thoria Subahi
       </Link>
 
       <ul className={isOpen ? "active" : ""}>
-        <li>
-          <Link to="/" onClick={handleLinkClick}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" onClick={handleLinkClick}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="/projects" onClick={handleLinkClick}>
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link to="/experience" onClick={handleLinkClick}>
-            Experience
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" onClick={handleLinkClick}>
-            Contact
-          </Link>
-        </li>
+        <NavLink to="/" onClick={handleLinkClick}>
+          Home
+        </NavLink>
+        <NavLink to="/about" onClick={handleLinkClick}>
+          About
+        </NavLink>
+        <NavLink to="/projects" onClick={handleLinkClick}>
+          Projects
+        </NavLink>
+        <NavLink to="/experience" onClick={handleLinkClick}>
+          Experience
+        </NavLink>
+        <NavLink to="/contact" onClick={handleLinkClick}>
+          Contact
+        </NavLink>
       </ul>
 
       <div className="mobile-menu" onClick={() => setIsOpen(!isOpen)}>
@@ -63,4 +57,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

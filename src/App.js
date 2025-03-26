@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,9 +12,10 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
+import { ThemeProvider } from "./context/ThemeContext";
 import "./App.css";
 
-function MainContent() {
+const MainContent = memo(() => {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -33,13 +34,15 @@ function MainContent() {
       {!isHome && <Footer />}
     </div>
   );
-}
+});
 
 function App() {
   return (
-    <Router>
-      <MainContent />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <MainContent />
+      </Router>
+    </ThemeProvider>
   );
 }
 
