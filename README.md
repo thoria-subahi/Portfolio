@@ -1,72 +1,72 @@
-# Thoria Subahi - Software Engineer Portfolio
+# Thoria Subahi - Portfolio
 
-This is a personal portfolio website built with React to showcase my skills, projects, and experience as a software engineer.
+A modern, responsive portfolio website showcasing my journey from biomedical science to software engineering.
 
-## Features
+## ✨ Features
 
-- Modern, responsive design with a purple and lime green color scheme
-- Responsive navigation with mobile menu support
-- Animated UI elements and transitions
-- Project showcase with filtering capabilities
-- Contact form for potential clients or employers
-- Social media integration
+- Responsive design with modern UI/UX principles
+- Interactive cyber-grid animations and particle effects
+- Dark theme with neon accents
+- Dynamic project cards with live demo links
+- Timeline-based experience visualization
+- Integrated contact methods
+- Mobile-first approach
 
-## Pages
+## 🛠 Tech Stack
 
-- **Home** - Introduction and hero section
-- **About** - Personal background, education, and skills
-- **Projects** - Showcase of development projects with links to live demos and code
-- **Experience** - Timeline of work experience and career history
-- **Contact** - Contact information and a contact form
+- React.js
+- React Router for navigation
+- CSS3 with custom properties and animations
+- React Icons
+- CSS Grid and Flexbox
+- Responsive design principles
 
-## Technologies Used
+## 🏗 Project Structure
 
-- React
-- React Router
-- CSS3 with custom properties
-- Responsive design
-- Font Awesome icons
+```
+/Portfolio
+├── src/
+│   ├── components/    # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── context/       # Theme context
+│   ├── hooks/         # Custom React hooks
+│   ├── assets/        # Static assets
+│   └── App.js         # Main app component
+```
 
-## Setup Instructions
+## 🚦 Getting Started
 
 1. Clone the repository
 
-   ```
-   git clone https://github.com/thoria-subahi/portfolio.git
-   ```
-
-2. Navigate to the project directory
-
-   ```
-   cd portfolio
-   ```
-
-3. Install dependencies
-
-   ```
-   npm install
-   ```
-
-4. Start the development server
-
-   ```
-   npm start
-   ```
-
-5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
-
-## Deployment
-
-The site can be built for production using:
-
+```bash
+git clone https://github.com/thoria-subahi/portfolio.git
 ```
+
+2. Install dependencies
+
+```bash
+cd portfolio
+npm install
+```
+
+3. Start development server
+
+```bash
+npm start
+```
+
+4. Build for production
+
+```bash
 npm run build
 ```
 
-This builds the app for production to the `build` folder, optimizing the build for the best performance.
+## 📱 Connect With Me
 
-## License
+- LinkedIn: [thoria-subahi](https://linkedin.com/in/thoria-subahi)
+- GitHub: [thoria-subahi](https://github.com/thoria-subahi)
+- Email: thoria.s@outlook.com
 
-This project is open source and available under the [MIT License](LICENSE).
+## 📄 License
 
-# Portfolio
+[MIT License](LICENSE)
